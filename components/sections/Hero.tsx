@@ -23,10 +23,10 @@ export default function Hero({ data }: { data: HeroContent }) {
       <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/80 to-navy/30" />
 
       {/* Content */}
-      <div className="relative z-10 mx-auto max-w-7xl px-6 pt-16 pb-32 lg:pt-20 lg:pb-40">
-        <div className="grid items-center gap-16 lg:grid-cols-[1fr_420px]">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 pt-16 pb-32 sm:px-6 lg:pt-20 lg:pb-40">
+        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_420px] lg:gap-16">
           {/* Left side - Text */}
-          <div className="flex flex-col gap-8">
+          <div className="flex min-w-0 flex-col gap-8">
             {/* Badge */}
             <div className="inline-flex w-fit items-center rounded-full border border-green/40 bg-green/10 px-4 py-2">
               <span className="font-sans text-sm font-semibold text-green-light">
@@ -35,21 +35,21 @@ export default function Hero({ data }: { data: HeroContent }) {
             </div>
 
             {/* Heading */}
-            <h1 className="font-heading text-5xl font-bold leading-tight text-white lg:text-6xl">
+            <h1 className="font-heading text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
               {data.title}{" "}
               <span className="text-green-light">{data.titleHighlight}</span>
             </h1>
 
             {/* Description */}
-            <p className="max-w-xl font-sans text-lg leading-relaxed text-slate-300">
+            <p className="max-w-xl break-words font-sans text-base leading-relaxed text-slate-300 sm:text-lg">
               {data.description}
             </p>
 
             {/* Buttons */}
-            <div className="flex flex-col gap-4 sm:flex-row">
+            <div className="flex w-full flex-col gap-3 sm:flex-row sm:gap-4">
               <Button
                 asChild
-                className="rounded-full bg-green px-8 py-6 font-sans text-base font-semibold text-white shadow-lg hover:bg-green-dark"
+                className="h-auto w-full rounded-full bg-green px-6 py-4 text-center whitespace-normal font-sans text-base font-semibold leading-tight text-white shadow-lg hover:bg-green-dark sm:w-auto sm:px-8 sm:py-6"
                 size="lg"
               >
                 <a href="#dla-firm">
@@ -60,7 +60,7 @@ export default function Hero({ data }: { data: HeroContent }) {
               <Button
                 asChild
                 variant="outline"
-                className="rounded-full border-white/30 bg-white/10 px-8 py-6 font-sans text-base font-semibold text-white backdrop-blur-sm hover:bg-white/20 hover:text-white"
+                className="h-auto w-full rounded-full border-white/30 bg-white/10 px-6 py-4 text-center whitespace-normal font-sans text-base font-semibold leading-tight text-white backdrop-blur-sm hover:bg-white/20 hover:text-white sm:w-auto sm:px-8 sm:py-6"
                 size="lg"
               >
                 <a href="#dla-klientow">{data.ctaSecondary}</a>
@@ -69,7 +69,7 @@ export default function Hero({ data }: { data: HeroContent }) {
           </div>
 
           {/* Right side - Glassmorphism card */}
-          <div className="rounded-3xl border border-white/15 bg-white/7 p-8 backdrop-blur-xl">
+          <div className="min-w-0 rounded-3xl border border-white/15 bg-white/7 p-6 backdrop-blur-xl sm:p-8">
             {/* Card header */}
             <div className="mb-8 flex items-center gap-3">
               <div className="flex size-12 items-center justify-center rounded-xl bg-green/20">

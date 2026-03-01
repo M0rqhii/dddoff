@@ -26,10 +26,10 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur-sm">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6">
         {/* Logo */}
         <a href="#home" className="flex items-center">
-          <span className="font-heading text-3xl font-extrabold">
+          <span className="font-heading text-2xl font-extrabold sm:text-3xl">
             <span className="text-navy">DDD</span>
             <span className="text-green">off</span>
           </span>
@@ -70,7 +70,7 @@ export default function Header() {
                 <Menu className="size-6 text-navy" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-80">
+            <SheetContent side="right" className="w-[85vw] max-w-80">
               <SheetHeader>
                 <SheetTitle>
                   <span className="font-heading text-2xl font-extrabold">
