@@ -29,14 +29,17 @@ export default function Services({ data }: { data: ServicesContent }) {
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {data.items.map((item, i) => {
             const IconComp = iconMap[item.icon];
+
             return (
               <div
                 key={i}
-                className="animate-fade-in group relative cursor-default rounded-3xl border-t-4 border-transparent bg-white p-10 text-center shadow-sm transition-all duration-700 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:border-green hover:shadow-xl"
+                className="service-card animate-fade-in group relative cursor-default overflow-hidden rounded-3xl border border-[#e7edf5] bg-white p-10 text-center shadow-sm"
                 style={{ transitionDelay: `${i * 100}ms` }}
               >
+                <span aria-hidden className="service-topline" />
+
                 {/* Icon wrapper */}
-                <div className="mx-auto mb-6 flex size-[70px] items-center justify-center rounded-2xl bg-green/10 text-green transition-all duration-500 group-hover:bg-green group-hover:text-white">
+                <div className="service-icon mx-auto mb-6 flex size-[70px] items-center justify-center rounded-2xl bg-green/10 text-green">
                   {IconComp && <IconComp className="size-8" />}
                 </div>
 
