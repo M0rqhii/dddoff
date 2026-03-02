@@ -751,14 +751,14 @@ export default function AdminPage() {
             </AccordionContent>
           </AccordionItem>
 
-          {/* ===== POLITYKA PRYWATNOSCI ===== */}
+          {/* ===== POLITYKA PRYWATNOŚCI ===== */}
           <AccordionItem value="privacyPolicy">
             <AccordionTrigger className="text-base font-semibold">
-              Polityka prywatnosci
+              Polityka prywatności
             </AccordionTrigger>
             <AccordionContent className="space-y-4">
               <div className="space-y-2">
-                <Label>Tytul</Label>
+                <Label>Tytuł</Label>
                 <Input
                   value={content.privacyPolicy.title}
                   onChange={(e) => updateField("privacyPolicy.title", e.target.value)}
@@ -778,14 +778,14 @@ export default function AdminPage() {
                 <Card key={i} className="py-3">
                   <CardContent className="space-y-3">
                     <div className="space-y-1">
-                      <Label className="text-xs">Naglowek</Label>
+                      <Label className="text-xs">Nagłówek</Label>
                       <Input
                         value={section.heading}
                         onChange={(e) => updateArrayField("privacyPolicy.sections", i, "heading", e.target.value)}
                       />
                     </div>
                     <div className="space-y-1">
-                      <Label className="text-xs">Tresc</Label>
+                      <Label className="text-xs">Treść</Label>
                       <Textarea
                         value={section.body}
                         onChange={(e) => updateArrayField("privacyPolicy.sections", i, "body", e.target.value)}
@@ -805,7 +805,7 @@ export default function AdminPage() {
             </AccordionTrigger>
             <AccordionContent className="space-y-4">
               <div className="space-y-2">
-                <Label>Tytul</Label>
+                <Label>Tytuł</Label>
                 <Input
                   value={content.cookiePolicy.title}
                   onChange={(e) => updateField("cookiePolicy.title", e.target.value)}
@@ -825,14 +825,14 @@ export default function AdminPage() {
                 <Card key={i} className="py-3">
                   <CardContent className="space-y-3">
                     <div className="space-y-1">
-                      <Label className="text-xs">Naglowek</Label>
+                      <Label className="text-xs">Nagłówek</Label>
                       <Input
                         value={section.heading}
                         onChange={(e) => updateArrayField("cookiePolicy.sections", i, "heading", e.target.value)}
                       />
                     </div>
                     <div className="space-y-1">
-                      <Label className="text-xs">Tresc</Label>
+                      <Label className="text-xs">Treść</Label>
                       <Textarea
                         value={section.body}
                         onChange={(e) => updateArrayField("cookiePolicy.sections", i, "body", e.target.value)}
@@ -852,7 +852,7 @@ export default function AdminPage() {
             </AccordionTrigger>
             <AccordionContent className="space-y-4">
               <div className="space-y-2">
-                <Label>Wiadomosc</Label>
+                <Label>Wiadomość</Label>
                 <Textarea
                   value={content.cookieConsent.message}
                   onChange={(e) => updateField("cookieConsent.message", e.target.value)}
@@ -867,14 +867,14 @@ export default function AdminPage() {
                 />
               </div>
               <div className="space-y-2">
-                <Label>Przycisk: Tylko niezbedne</Label>
+                <Label>Przycisk: Tylko niezbędne</Label>
                 <Input
                   value={content.cookieConsent.acceptNecessary}
                   onChange={(e) => updateField("cookieConsent.acceptNecessary", e.target.value)}
                 />
               </div>
               <div className="space-y-2">
-                <Label>Link: Dowiedz sie wiecej</Label>
+                <Label>Link: Dowiedz się więcej</Label>
                 <Input
                   value={content.cookieConsent.learnMore}
                   onChange={(e) => updateField("cookieConsent.learnMore", e.target.value)}

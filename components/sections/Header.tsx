@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { Menu, Phone } from "lucide-react";
@@ -13,12 +13,12 @@ import {
 } from "@/components/ui/sheet";
 
 const navLinks = [
-  { label: "Strona Główna", href: "#home" },
-  { label: "Dla Firm", href: "#dla-firm" },
-  { label: "Dla Klientów", href: "#dla-klientow" },
-  { label: "Usługi", href: "#uslugi" },
-  { label: "Abonamenty", href: "#abonamenty" },
-  { label: "Kontakt", href: "#kontakt" },
+  { label: "Strona Główna", href: "/#home" },
+  { label: "Dla Firm", href: "/#dla-firm" },
+  { label: "Dla Klientów", href: "/#dla-klientow" },
+  { label: "Usługi", href: "/#uslugi" },
+  { label: "Abonamenty", href: "/#abonamenty" },
+  { label: "Kontakt", href: "/#kontakt" },
 ];
 
 export default function Header() {
@@ -28,7 +28,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6">
         {/* Logo */}
-        <a href="#home" className="flex items-center">
+        <a href="/#home" className="flex items-center">
           <span className="font-heading text-2xl font-extrabold sm:text-3xl">
             <span className="text-navy">DDD</span>
             <span className="text-green">off</span>
@@ -55,7 +55,7 @@ export default function Header() {
             asChild
             className="rounded-full bg-green px-6 font-sans font-semibold text-white shadow-md hover:bg-green-dark"
           >
-            <a href="#kontakt">
+            <a href="/#kontakt">
               <Phone className="size-4" />
               Bezpłatna Wycena
             </a>
@@ -101,7 +101,7 @@ export default function Header() {
                     className="w-full rounded-full bg-green px-6 py-3 font-sans font-semibold text-white shadow-md hover:bg-green-dark"
                     size="lg"
                   >
-                    <a href="#kontakt">
+                    <a href="/#kontakt">
                       <Phone className="size-4" />
                       Bezpłatna Wycena
                     </a>
