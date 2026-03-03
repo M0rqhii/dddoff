@@ -12,6 +12,12 @@ export const dynamic = "force-dynamic";
 
 export default async function Home() {
   const content = await getContent();
+  const packageOptions = Array.from(
+    new Set([
+      ...content.pricingFirms.plans.map((plan) => plan.name),
+      ...content.pricingIndividual.plans.map((plan) => plan.name),
+    ]),
+  );
 
   return (
     <>
@@ -21,7 +27,7 @@ export default async function Home() {
       <Clients data={content.clients} />
       <Pricing firms={content.pricingFirms} individual={content.pricingIndividual} />
       <WhyUs data={content.whyUs} />
-      <Contact data={content.contact} />
+      <Contact data={content.contact} packageOptions={packageOptions} />
       <Footer data={content.footer} />
     </>
   );

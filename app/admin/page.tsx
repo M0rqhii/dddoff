@@ -937,6 +937,41 @@ export default function AdminPage() {
               </div>
 
               <Separator />
+              <p className="text-sm font-medium text-muted-foreground">Social media</p>
+              <p className="text-xs text-muted-foreground">
+                Dostępne ikony: Facebook, Instagram, Linkedin
+              </p>
+              {content.footer.socialLinks.map((social, i) => (
+                <Card key={i} className="py-3">
+                  <CardContent>
+                    <div className="grid grid-cols-3 gap-3">
+                      <div className="space-y-1">
+                        <Label className="text-xs">Ikona</Label>
+                        <Input
+                          value={social.icon}
+                          onChange={(e) => updateArrayField("footer.socialLinks", i, "icon", e.target.value)}
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <Label className="text-xs">Etykieta</Label>
+                        <Input
+                          value={social.label}
+                          onChange={(e) => updateArrayField("footer.socialLinks", i, "label", e.target.value)}
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <Label className="text-xs">Link (href)</Label>
+                        <Input
+                          value={social.href}
+                          onChange={(e) => updateArrayField("footer.socialLinks", i, "href", e.target.value)}
+                        />
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+
+              <Separator />
               <p className="text-sm font-medium text-muted-foreground">Szybkie linki</p>
               {content.footer.quickLinks.map((link, i) => (
                 <Card key={i} className="py-3">

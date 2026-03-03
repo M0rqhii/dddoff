@@ -8,10 +8,26 @@
     "ctaSecondary": "Usługi dla Domu",
     "cardTitle": "Dlaczego DDDoff?",
     "stats": [
-      { "title": "100% Gwarancji", "subtitle": "Na każdą wykonaną usługę", "icon": "ShieldCheck" },
-      { "title": "Reakcja 24/7", "subtitle": "Interwencja w ciągu godziny", "icon": "Clock" },
-      { "title": "Setki Klientów", "subtitle": "Zaufali nam na Mazowszu", "icon": "Users" },
-      { "title": "Pełna dokumentacja", "subtitle": "SANEPID, HACCP, BHP", "icon": "FileText" }
+      {
+        "title": "100% Gwarancji",
+        "subtitle": "Na każdą wykonaną usługę",
+        "icon": "ShieldCheck"
+      },
+      {
+        "title": "Reakcja 24/7",
+        "subtitle": "Interwencja w ciągu godziny",
+        "icon": "Clock"
+      },
+      {
+        "title": "Setki Klientów",
+        "subtitle": "Zaufali nam na Mazowszu",
+        "icon": "Users"
+      },
+      {
+        "title": "Pełna dokumentacja",
+        "subtitle": "SANEPID, HACCP, BHP",
+        "icon": "FileText"
+      }
     ],
     "cardCta": "Darmowa wycena w 15 min"
   },
@@ -20,10 +36,26 @@
     "title": "Nasze Usługi",
     "subtitle": "Kompleksowe usługi dezynsekcji, deratyzacji, dezynfekcji i ozonowania",
     "items": [
-      { "title": "Dezynsekcja", "description": "Skuteczne zwalczanie insektów: karaluchy, pluskwy, mrówki, mole i inne szkodniki.", "icon": "Bug" },
-      { "title": "Deratyzacja", "description": "Profesjonalne usuwanie gryzoni: szczury, myszy. Montaż stacji deratyzacyjnych.", "icon": "Rat" },
-      { "title": "Dezynfekcja", "description": "Eliminacja bakterii, wirusów i grzybów. Dezynfekcja powierzchni i pomieszczeń.", "icon": "ShieldPlus" },
-      { "title": "Ozonowanie", "description": "Neutralizacja zapachów i eliminacja drobnoustrojów za pomocą generatorów ozonu.", "icon": "Wind" }
+      {
+        "title": "Dezynsekcja",
+        "description": "Skuteczne zwalczanie insektów: karaluchy, pluskwy, mrówki, mole i inne szkodniki.",
+        "icon": "Bug"
+      },
+      {
+        "title": "Deratyzacja",
+        "description": "Profesjonalne usuwanie gryzoni: szczury, myszy. Montaż stacji deratyzacyjnych.",
+        "icon": "Rat"
+      },
+      {
+        "title": "Dezynfekcja",
+        "description": "Eliminacja bakterii, wirusów i grzybów. Dezynfekcja powierzchni i pomieszczeń.",
+        "icon": "ShieldPlus"
+      },
+      {
+        "title": "Ozonowanie",
+        "description": "Neutralizacja zapachów i eliminacja drobnoustrojów za pomocą generatorów ozonu.",
+        "icon": "Wind"
+      }
     ]
   },
   "clients": {
@@ -150,10 +182,26 @@
     "title": "Dlaczego warto wybrać DDDoff",
     "subtitle": "Doświadczenie, nowoczesne metody i pełna dokumentacja — to nas wyróżnia",
     "items": [
-      { "title": "Abonamenty dla firm", "description": "Stała opieka i regularne wizyty dopasowane do potrzeb.", "icon": "FileText" },
-      { "title": "Nowoczesne metody", "description": "Wysokiej klasy sprzęt oraz preparaty bezpieczne dla środowiska.", "icon": "FlaskConical" },
-      { "title": "Pełna dokumentacja", "description": "Raporty i dokumentacja zgodna z wymogami SANEPID i HACCP.", "icon": "ClipboardList" },
-      { "title": "Bezpieczeństwo BHP", "description": "Wszystkie zabiegi z zachowaniem najwyższych standardów.", "icon": "HardHat" }
+      {
+        "title": "Abonamenty dla firm",
+        "description": "Stała opieka i regularne wizyty dopasowane do potrzeb.",
+        "icon": "FileText"
+      },
+      {
+        "title": "Nowoczesne metody",
+        "description": "Wysokiej klasy sprzęt oraz preparaty bezpieczne dla środowiska.",
+        "icon": "FlaskConical"
+      },
+      {
+        "title": "Pełna dokumentacja",
+        "description": "Raporty i dokumentacja zgodna z wymogami SANEPID i HACCP.",
+        "icon": "ClipboardList"
+      },
+      {
+        "title": "Bezpieczeństwo BHP",
+        "description": "Wszystkie zabiegi z zachowaniem najwyższych standardów.",
+        "icon": "HardHat"
+      }
     ]
   },
   "contact": {
@@ -162,14 +210,31 @@
     "description": "Nasi eksperci są gotowi do natychmiastowej interwencji. Skontaktuj się z nami i uzyskaj",
     "descriptionHighlight": "darmową wycenę",
     "methods": [
-      { "icon": "Phone", "label": "123 456 789", "value": "tel:123456789", "sublabel": "Pon — Pt, 8:00 — 18:00", "href": "tel:123456789" },
-      { "icon": "Mail", "label": "kontakt@dddoff.pl", "value": "mailto:kontakt@dddoff.pl", "sublabel": "Odpowiadamy w ciągu 24h", "href": "mailto:kontakt@dddoff.pl" },
-      { "icon": "MapPin", "label": "Warszawa i okolice", "value": "", "sublabel": "Obsługujemy całe Mazowsze" }
+      {
+        "icon": "Phone",
+        "label": "123 456 789",
+        "value": "tel:123456789",
+        "sublabel": "Pon — Pt, 8:00 — 18:00",
+        "href": "tel:123456789"
+      },
+      {
+        "icon": "Mail",
+        "label": "kontakt@dddoff.pl",
+        "value": "mailto:kontakt@dddoff.pl",
+        "sublabel": "Odpowiadamy w ciągu 24h",
+        "href": "mailto:kontakt@dddoff.pl"
+      },
+      {
+        "icon": "MapPin",
+        "label": "Warszawa i okolice",
+        "value": "",
+        "sublabel": "Obsługujemy całe Mazowsze"
+      }
     ],
     "trustItems": [
       "24/7 Dostępność",
       "Dyskrecja gwarantowana",
-      "Tysiące zadowolonych klientów"
+      "100% zadowolenia klientów"
     ],
     "formTitle": "Szybka wiadomość",
     "formDescription": "Zostaw swój numer telefonu, a nasz specjalista skontaktuje się z Tobą najszybciej jak to możliwe.",
@@ -179,22 +244,63 @@
   "footer": {
     "about": "Jesteśmy liderem w zakresie usług DDD na Mazowszu. Zapewniamy bezpieczeństwo i higienę w Twojej firmie oraz w domu.",
     "quickLinks": [
-      { "label": "Strona Główna", "href": "#home" },
-      { "label": "Nasze Usługi", "href": "#uslugi" },
-      { "label": "Abonamenty", "href": "#abonamenty" },
-      { "label": "Dla kogo pracujemy", "href": "#dla-kogo" }
+      {
+        "label": "Strona Główna",
+        "href": "#home"
+      },
+      {
+        "label": "Nasze Usługi",
+        "href": "#uslugi"
+      },
+      {
+        "label": "Abonamenty",
+        "href": "#abonamenty"
+      },
+      {
+        "label": "Dla kogo pracujemy",
+        "href": "#dla-kogo"
+      }
     ],
     "services": [
-      { "label": "Dezynsekcja", "href": "#uslugi" },
-      { "label": "Deratyzacja", "href": "#uslugi" },
-      { "label": "Dezynfekcja", "href": "#uslugi" },
-      { "label": "Ozonowanie", "href": "#uslugi" }
+      {
+        "label": "Dezynsekcja",
+        "href": "#uslugi"
+      },
+      {
+        "label": "Deratyzacja",
+        "href": "#uslugi"
+      },
+      {
+        "label": "Dezynfekcja",
+        "href": "#uslugi"
+      },
+      {
+        "label": "Ozonowanie",
+        "href": "#uslugi"
+      }
     ],
     "contactAddress": "ul. Przykładowa 12, Warszawa",
     "contactPhone": "+48 123 456 789",
     "contactEmail": "kontakt@dddoff.pl",
     "contactHours": "Interwencje 24/7",
-    "copyright": "2026 DDDoff - Wszelkie prawa zastrzeżone. Projekt i wykonanie."
+    "copyright": "2026 DDDoff - Wszelkie prawa zastrzeżone. Projekt i wykonanie.",
+    "socialLinks": [
+      {
+        "icon": "Facebook",
+        "label": "Facebook",
+        "href": "#"
+      },
+      {
+        "icon": "Instagram",
+        "label": "Instagram",
+        "href": "#"
+      },
+      {
+        "icon": "Linkedin",
+        "label": "LinkedIn",
+        "href": "#"
+      }
+    ]
   },
   "privacyPolicy": {
     "title": "Polityka Prywatności",

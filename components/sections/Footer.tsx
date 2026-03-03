@@ -6,6 +6,12 @@ interface FooterProps {
   data: FooterContent;
 }
 
+const socialIconMap: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>> = {
+  Facebook,
+  Instagram,
+  Linkedin,
+};
+
 export default function Footer({ data }: FooterProps) {
   return (
     <footer className="bg-navy-footer pt-12 pb-2 text-gray-400">
@@ -23,20 +29,27 @@ export default function Footer({ data }: FooterProps) {
 
             {/* Social icons */}
             <div className="mt-6 flex gap-3">
-              {[
-                { icon: Facebook, href: "#", label: "Facebook" },
-                { icon: Instagram, href: "#", label: "Instagram" },
-                { icon: Linkedin, href: "#", label: "LinkedIn" },
-              ].map(({ icon: Icon, href, label }) => (
-                <a
-                  key={label}
-                  href={href}
-                  aria-label={label}
-                  className="flex size-10 items-center justify-center rounded-full border border-white/10 text-gray-400 transition-all duration-300 hover:border-green hover:bg-green hover:text-white"
-                >
-                  <Icon className="size-4" />
-                </a>
-              ))}
+              {data.socialLinks.map((social) => {
+                const Icon = socialIconMap[social.icon];
+                if (!Icon) return null;
+
+                const isExternal =
+                  social.href.startsWith("https://") ||
+                  social.href.startsWith("http://");
+
+                return (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    aria-label={social.label}
+                    target={isExternal ? "_blank" : undefined}
+                    rel={isExternal ? "noreferrer noopener" : undefined}
+                    className="flex size-10 items-center justify-center rounded-full border border-white/10 text-gray-400 transition-all duration-300 hover:border-green hover:bg-green hover:text-white"
+                  >
+                    <Icon className="size-4" />
+                  </a>
+                );
+              })}
             </div>
           </div>
 

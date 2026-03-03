@@ -1,5 +1,11 @@
+"use client";
+
 import { ShieldHalf, Home, Check, CheckCircle, Gem, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  CONTACT_PACKAGE_EVENT,
+  type ContactPackageEventDetail,
+} from "@/lib/contact-package-event";
 import type { PricingGroup } from "@/lib/types";
 
 interface PricingProps {
@@ -8,6 +14,19 @@ interface PricingProps {
 }
 
 export default function Pricing({ firms, individual }: PricingProps) {
+  function scrollToContactForm(packageName: string) {
+    window.dispatchEvent(
+      new CustomEvent<ContactPackageEventDetail>(CONTACT_PACKAGE_EVENT, {
+        detail: { packageName },
+      }),
+    );
+
+    const contactSection = document.getElementById("kontakt");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
   return (
     <section id="abonamenty" className="bg-slate-light py-24">
       <div className="mx-auto max-w-6xl px-5">
@@ -74,14 +93,20 @@ export default function Pricing({ firms, individual }: PricingProps) {
 
                   <div className="mt-8">
                     {plan.popular ? (
-                      <Button className="w-full rounded-full bg-green font-semibold text-white shadow-md hover:bg-green-dark">
+                      <Button
+                        type="button"
+                        className="w-full rounded-full bg-green font-semibold text-white shadow-md hover:bg-green-dark"
+                        onClick={() => scrollToContactForm(plan.name)}
+                      >
                         {plan.cta}
                         <ArrowRight className="size-4" />
                       </Button>
                     ) : (
                       <Button
+                        type="button"
                         variant="outline"
                         className="w-full rounded-full font-semibold"
+                        onClick={() => scrollToContactForm(plan.name)}
                       >
                         {plan.cta}
                         <ArrowRight className="size-4" />
@@ -146,14 +171,20 @@ export default function Pricing({ firms, individual }: PricingProps) {
 
                   <div className="mt-8">
                     {plan.popular ? (
-                      <Button className="w-full rounded-full bg-green font-semibold text-white shadow-md hover:bg-green-dark">
+                      <Button
+                        type="button"
+                        className="w-full rounded-full bg-green font-semibold text-white shadow-md hover:bg-green-dark"
+                        onClick={() => scrollToContactForm(plan.name)}
+                      >
                         {plan.cta}
                         <ArrowRight className="size-4" />
                       </Button>
                     ) : (
                       <Button
+                        type="button"
                         variant="outline"
                         className="w-full rounded-full font-semibold"
+                        onClick={() => scrollToContactForm(plan.name)}
                       >
                         {plan.cta}
                         <ArrowRight className="size-4" />

@@ -117,10 +117,17 @@ export interface CookieConsentContent {
   learnMore: string;
 }
 
+export interface FooterSocialLink {
+  icon: string;
+  label: string;
+  href: string;
+}
+
 export interface FooterContent {
   about: string;
   quickLinks: { label: string; href: string }[];
   services: { label: string; href: string }[];
+  socialLinks: FooterSocialLink[];
   contactAddress: string;
   contactPhone: string;
   contactEmail: string;

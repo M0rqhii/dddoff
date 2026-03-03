@@ -5,15 +5,26 @@ interface ContactBody {
   name: string;
   email: string;
   phone: string;
+  packageName: string;
+  description?: string;
+}
+
+function escapeHtml(value: string): string {
+  return value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
 }
 
 export async function POST(request: Request) {
   try {
     const body = (await request.json()) as ContactBody;
 
-    if (!body.name || !body.email || !body.phone) {
+    if (!body.name || !body.email || !body.phone || !body.packageName) {
       return NextResponse.json(
-        { error: "Wszystkie pola są wymagane." },
+        { error: "Wszystkie pola s\u0105 wymagane." },
         { status: 400 },
       );
     }
@@ -42,33 +53,41 @@ export async function POST(request: Request) {
     await transporter.sendMail({
       from: `"DDDoff - Formularz kontaktowy" <${SMTP_USER}>`,
       to: CONTACT_EMAIL_TO,
-      subject: `Nowe zapytanie ze strony od ${body.name}`,
+      subject: `Nowe zapytanie ze strony od ${body.name} (${body.packageName})`,
       html: `
         <h2>Nowe zapytanie ze strony DDDoff</h2>
         <table style="border-collapse:collapse;font-family:Arial,sans-serif;">
           <tr>
-            <td style="padding:8px 16px;font-weight:bold;color:#163a66;">Imię i nazwisko:</td>
-            <td style="padding:8px 16px;">${body.name}</td>
+            <td style="padding:8px 16px;font-weight:bold;color:#163a66;">Imi\u0119 i nazwisko:</td>
+            <td style="padding:8px 16px;">${escapeHtml(body.name)}</td>
           </tr>
           <tr>
             <td style="padding:8px 16px;font-weight:bold;color:#163a66;">E-mail:</td>
-            <td style="padding:8px 16px;"><a href="mailto:${body.email}">${body.email}</a></td>
+            <td style="padding:8px 16px;"><a href="mailto:${escapeHtml(body.email)}">${escapeHtml(body.email)}</a></td>
           </tr>
           <tr>
             <td style="padding:8px 16px;font-weight:bold;color:#163a66;">Telefon:</td>
-            <td style="padding:8px 16px;"><a href="tel:${body.phone}">${body.phone}</a></td>
+            <td style="padding:8px 16px;"><a href="tel:${escapeHtml(body.phone)}">${escapeHtml(body.phone)}</a></td>
+          </tr>
+          <tr>
+            <td style="padding:8px 16px;font-weight:bold;color:#163a66;">Pakiet:</td>
+            <td style="padding:8px 16px;">${escapeHtml(body.packageName)}</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 16px;font-weight:bold;color:#163a66;">Kr\u00f3tki opis:</td>
+            <td style="padding:8px 16px;">${body.description ? escapeHtml(body.description) : "Brak opisu"}</td>
           </tr>
         </table>
         <br>
-        <p style="color:#64748b;font-size:12px;">Wiadomość wysłana automatycznie z formularza na stronie DDDoff.</p>
+        <p style="color:#64748b;font-size:12px;">Wiadomo\u015b\u0107 wys\u0142ana automatycznie z formularza na stronie DDDoff.</p>
       `,
     });
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error("Błąd wysyłki maila:", error);
+    console.error("B\u0142\u0105d wysy\u0142ki maila:", error);
     return NextResponse.json(
-      { error: "Nie udało się wysłać wiadomości." },
+      { error: "Nie uda\u0142o si\u0119 wys\u0142a\u0107 wiadomo\u015bci." },
       { status: 500 },
     );
   }

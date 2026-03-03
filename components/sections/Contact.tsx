@@ -1,13 +1,19 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import { Phone, Mail, MapPin, Check, User, ArrowRight, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  CONTACT_PACKAGE_EVENT,
+  type ContactPackageEventDetail,
+} from "@/lib/contact-package-event";
 import type { ContactContent } from "@/lib/types";
 
 interface ContactProps {
   data: ContactContent;
+  packageOptions: string[];
 }
 
 const iconMap: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>> = {
@@ -16,14 +22,29 @@ const iconMap: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>
   MapPin,
 };
 
-export default function Contact({ data }: ContactProps) {
+export default function Contact({ data, packageOptions }: ContactProps) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [packageName, setPackageName] = useState("");
+  const [description, setDescription] = useState("");
   const [loading, setLoading] = useState(false);
 
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    function handlePackageSelect(event: Event) {
+      const customEvent = event as CustomEvent<ContactPackageEventDetail>;
+      const selectedPackage = customEvent.detail?.packageName?.trim();
+      if (selectedPackage) {
+        setPackageName(selectedPackage);
+      }
+    }
+
+    window.addEventListener(CONTACT_PACKAGE_EVENT, handlePackageSelect);
+    return () => window.removeEventListener(CONTACT_PACKAGE_EVENT, handlePackageSelect);
+  }, []);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -35,7 +56,7 @@ export default function Contact({ data }: ContactProps) {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, phone }),
+        body: JSON.stringify({ name, email, phone, packageName, description }),
       });
 
       if (!res.ok) {
@@ -47,6 +68,8 @@ export default function Contact({ data }: ContactProps) {
       setName("");
       setEmail("");
       setPhone("");
+      setPackageName("");
+      setDescription("");
     } catch (err) {
       setError(
         err instanceof Error ? err.message : "Nie udało się wysłać wiadomości.",
@@ -171,6 +194,33 @@ export default function Contact({ data }: ContactProps) {
                 onChange={(e) => setPhone(e.target.value)}
                 className="pl-10"
                 required
+              />
+            </div>
+
+            {/* Package field */}
+            <div>
+              <select
+                value={packageName}
+                onChange={(e) => setPackageName(e.target.value)}
+                className="border-input focus-visible:border-ring focus-visible:ring-ring/50 h-10 w-full rounded-md border bg-transparent px-3 text-sm text-text shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px]"
+                required
+              >
+                <option value="">Wybierz pakiet</option>
+                {packageOptions.map((option) => (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Description field */}
+            <div>
+              <Textarea
+                placeholder="Krótki opis problemu (opcjonalnie)"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                maxLength={600}
               />
             </div>
 
