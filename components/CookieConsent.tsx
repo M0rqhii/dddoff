@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import type { CookieConsentContent } from "@/lib/types";
@@ -10,14 +10,10 @@ interface CookieConsentProps {
 }
 
 export default function CookieConsent({ data }: CookieConsentProps) {
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const consent = localStorage.getItem("cookie-consent");
-    if (!consent) {
-      setVisible(true);
-    }
-  }, []);
+  const [visible, setVisible] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return !window.localStorage.getItem("cookie-consent");
+  });
 
   function accept(type: "all" | "necessary") {
     localStorage.setItem("cookie-consent", type);

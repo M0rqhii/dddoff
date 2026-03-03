@@ -1,6 +1,7 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Menu, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -28,24 +29,24 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6">
         {/* Logo */}
-        <a href="/#home" className="flex items-center">
+        <Link href="/#home" className="flex items-center">
           <span className="font-heading text-2xl font-extrabold sm:text-3xl">
             <span className="text-navy">DDD</span>
             <span className="text-green">off</span>
           </span>
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden items-center gap-8 lg:flex">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               className="group relative font-sans text-sm font-medium text-text transition-colors hover:text-navy"
             >
               {link.label}
               <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-green transition-all duration-300 group-hover:w-full" />
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -55,10 +56,10 @@ export default function Header() {
             asChild
             className="rounded-full bg-green px-6 font-sans font-semibold text-white shadow-md hover:bg-green-dark"
           >
-            <a href="/#kontakt">
+            <Link href="/#kontakt">
               <Phone className="size-4" />
               Bezpłatna Wycena
-            </a>
+            </Link>
           </Button>
         </div>
 
@@ -83,13 +84,13 @@ export default function Header() {
               <nav className="mt-6 flex flex-col gap-1 px-4">
                 {navLinks.map((link) => (
                   <SheetClose asChild key={link.href}>
-                    <a
+                    <Link
                       href={link.href}
                       className="group relative rounded-lg px-4 py-3 font-sans text-base font-medium text-text transition-colors hover:bg-slate-light hover:text-navy"
                     >
                       {link.label}
                       <span className="absolute bottom-2 left-4 h-0.5 w-0 bg-green transition-all duration-300 group-hover:w-[calc(100%-2rem)]" />
-                    </a>
+                    </Link>
                   </SheetClose>
                 ))}
               </nav>
@@ -101,10 +102,10 @@ export default function Header() {
                     className="w-full rounded-full bg-green px-6 py-3 font-sans font-semibold text-white shadow-md hover:bg-green-dark"
                     size="lg"
                   >
-                    <a href="/#kontakt">
+                    <Link href="/#kontakt">
                       <Phone className="size-4" />
                       Bezpłatna Wycena
-                    </a>
+                    </Link>
                   </Button>
                 </SheetClose>
               </div>
